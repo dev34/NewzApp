@@ -55,7 +55,7 @@ class FlashScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15.0),
                     )),
                     backgroundColor: MaterialStateProperty.all(
-                      const Color.fromRGBO(96, 88, 88, 1),
+                      Colors.grey[700],
                     ),
                     minimumSize: MaterialStateProperty.all(
                       const Size(160, 67),

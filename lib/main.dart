@@ -6,7 +6,9 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Times new roman'),
+      theme: ThemeData(
+        fontFamily: 'Times new roman',
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => const FlashScreen(),
