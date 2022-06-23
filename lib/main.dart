@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './flash_screen.dart';
 import './sign_in_page.dart';
+import './sign_up_page.dart';
+import './interest_page.dart';
 
 void main() {
   runApp(
@@ -13,6 +15,8 @@ void main() {
       routes: {
         '/': (context) => const FlashScreen(),
         '/signin': (context) => const SignInPage(),
+        '/signup': (context) => const SignUpPage(),
+        '/interest': (context) => const InterestPage(),
       },
       title: 'Dzuabry',
     ),

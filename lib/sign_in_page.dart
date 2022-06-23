@@ -125,7 +125,9 @@ class _SignInPageState extends State<SignInPage> {
                       height: 30,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/interest');
+                      },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           Colors.grey[700],
@@ -182,18 +184,23 @@ class _SignInPageState extends State<SignInPage> {
                       height: 45,
                     ),
                     Center(
-                      child: RichText(
-                        text: TextSpan(
-                          style: const TextStyle(
-                              fontFamily: 'Roboto', fontSize: 20),
-                          children: [
-                            const TextSpan(
-                                text: 'No tienes una cuenta?',
-                                style: TextStyle(color: Colors.black)),
-                            TextSpan(
-                                text: ' Crear uno',
-                                style: TextStyle(color: Colors.grey.shade700))
-                          ],
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/signup');
+                        },
+                        child: RichText(
+                          text: TextSpan(
+                            style: const TextStyle(
+                                fontFamily: 'Roboto', fontSize: 20),
+                            children: [
+                              const TextSpan(
+                                  text: 'No tienes una cuenta?',
+                                  style: TextStyle(color: Colors.black)),
+                              TextSpan(
+                                  text: ' Crear uno',
+                                  style: TextStyle(color: Colors.grey.shade700))
+                            ],
+                          ),
                         ),
                       ),
                     ),
