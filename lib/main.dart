@@ -3,6 +3,7 @@ import './flash_screen.dart';
 import './sign_in_page.dart';
 import './sign_up_page.dart';
 import './interest_page.dart';
+import './home_page.dart';
 
 void main() {
   runApp(
@@ -11,12 +12,13 @@ void main() {
       theme: ThemeData(
         fontFamily: 'Times new roman',
       ),
-      initialRoute: '/',
+      initialRoute: '/home',
       routes: {
         '/': (context) => const FlashScreen(),
         '/signin': (context) => const SignInPage(),
         '/signup': (context) => const SignUpPage(),
         '/interest': (context) => const InterestPage(),
+        '/home': (context) => const HomePage(),
       },
       title: 'Dzuabry',
     ),

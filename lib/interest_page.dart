@@ -47,7 +47,9 @@ class InterestPage extends StatelessWidget {
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
                                 fontWeight: FontWeight.normal)),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
                       ),
                     ),
                   ],

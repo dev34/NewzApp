@@ -28,7 +28,7 @@ ElevatedButton interestButton({required String text}) {
     onPressed: () {},
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
-          EdgeInsets.symmetric(vertical: 20, horizontal: 30)),
+          const EdgeInsets.symmetric(vertical: 20, horizontal: 30)),
       backgroundColor: MaterialStateProperty.all(
         Colors.grey[700],
       ),
