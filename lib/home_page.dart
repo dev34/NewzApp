@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(child: bottomNavScreens[screenIndex]),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(indicatorColor: Colors.grey[350]),

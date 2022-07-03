@@ -10,6 +10,8 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        textTheme:
+            TextTheme(bodyText2: TextStyle(color: Colors.black, fontSize: 17)),
         fontFamily: 'Times new roman',
       ),
       initialRoute: '/home',
