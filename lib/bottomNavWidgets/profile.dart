@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_1st_app/constants.dart';
-import 'package:news_1st_app/pubg_widgets/navigationDrawer.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -18,14 +17,14 @@ class Profile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Mi perfil',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                       fontFamily: 'Roboto'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: [
@@ -40,7 +39,7 @@ class Profile extends StatelessWidget {
                     Container(
                       width: 40,
                       height: 40,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color.fromARGB(190, 189, 189, 189),
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(30),
@@ -48,24 +47,24 @@ class Profile extends StatelessWidget {
                       child: IconButton(
                           color: primaryColor,
                           onPressed: () {},
-                          icon: Icon(Icons.edit_outlined)),
+                          icon: const Icon(Icons.edit_outlined)),
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'Sergio Busquets',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
                 ),
-                SizedBox(height: 10),
-                Text('@Sergio 272'),
-                SizedBox(height: 10),
-                Text('Fecha de Registro: Mayo 24 2022'),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
+                const Text('@Sergio 272'),
+                const SizedBox(height: 10),
+                const Text('Fecha de Registro: Mayo 24 2022'),
+                const SizedBox(height: 10),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    minimumSize: Size(30, 42),
-                    side: BorderSide(
+                    minimumSize: const Size(30, 42),
+                    side: const BorderSide(
                       color: Colors.grey,
                       style: BorderStyle.solid,
                       width: 1.5,
@@ -81,7 +80,7 @@ class Profile extends StatelessWidget {
                           fontWeight: FontWeight.normal)),
                   onPressed: () {},
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -90,10 +89,10 @@ class Profile extends StatelessWidget {
                           color: primaryColor,
                           borderRadius: BorderRadius.circular(20)),
                       width: screenSize.width / 4 - 10,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 25),
                       child: Column(
-                        children: [
+                        children: const [
                           Text(
                             '4',
                             style: TextStyle(
@@ -118,10 +117,10 @@ class Profile extends StatelessWidget {
                           color: primaryColor,
                           borderRadius: BorderRadius.circular(20)),
                       width: screenSize.width / 4 - 10,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 25),
                       child: Column(
-                        children: [
+                        children: const [
                           Text(
                             '34',
                             style: TextStyle(
@@ -146,10 +145,10 @@ class Profile extends StatelessWidget {
                           color: primaryColor,
                           borderRadius: BorderRadius.circular(20)),
                       width: screenSize.width / 4 - 10,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 25),
                       child: Column(
-                        children: [
+                        children: const [
                           Text(
                             '24',
                             style: TextStyle(
@@ -174,10 +173,10 @@ class Profile extends StatelessWidget {
                           color: primaryColor,
                           borderRadius: BorderRadius.circular(20)),
                       width: screenSize.width / 4 - 10,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 25),
                       child: Column(
-                        children: [
+                        children: const [
                           Text(
                             '6',
                             style: TextStyle(
@@ -199,16 +198,16 @@ class Profile extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey, width: 1.5)),
                   width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Cartas credenciales',
+                      const Text('Cartas credenciales',
                           style: TextStyle(
                               fontFamily: 'Roboto',
                               fontWeight: FontWeight.w500,
@@ -217,14 +216,15 @@ class Profile extends StatelessWidget {
                           iconSize: 26,
                           color: primaryColor,
                           onPressed: () {},
-                          icon: Icon(Icons.edit_outlined)),
+                          icon: const Icon(Icons.edit_outlined)),
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   height: 190,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey, width: 1.5)),
                   width: double.infinity,
@@ -233,34 +233,34 @@ class Profile extends StatelessWidget {
                     children: [
                       Row(children: [
                         Icon(color: primaryColor, Icons.wallet_travel),
-                        SizedBox(width: 5),
-                        Text('Agregar estado de empleo',
+                        const SizedBox(width: 5),
+                        const Text('Agregar estado de empleo',
                             style: TextStyle(fontFamily: 'Roboto'))
                       ]),
                       Row(children: [
                         Icon(color: primaryColor, Icons.school),
-                        SizedBox(width: 5),
-                        Text('Agregar estado educativo',
+                        const SizedBox(width: 5),
+                        const Text('Agregar estado educativo',
                             style: TextStyle(fontFamily: 'Roboto'))
                       ]),
                       Row(children: [
                         Icon(color: primaryColor, Icons.map),
-                        SizedBox(width: 5),
-                        Text('Agregar estado civil',
+                        const SizedBox(width: 5),
+                        const Text('Agregar estado civil',
                             style: TextStyle(fontFamily: 'Roboto'))
                       ]),
                       Row(
                         children: [
                           Icon(color: primaryColor, Icons.location_on),
-                          SizedBox(width: 5),
-                          Text('Agregar direccion',
+                          const SizedBox(width: 5),
+                          const Text('Agregar direccion',
                               style: TextStyle(fontFamily: 'Roboto'))
                         ],
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: Column(
@@ -278,7 +278,7 @@ class Profile extends StatelessWidget {
                             hintStyle: TextStyle(
                                 color: primaryColor, fontFamily: 'Roboto')),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextField(
                         cursorColor: primaryColor,
                         decoration: InputDecoration(

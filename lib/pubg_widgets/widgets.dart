@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-TextFormField simpleField(String hintText) {
+TextFormField simpleField(String hintText, String errorMessage) {
   return TextFormField(
+    validator: ((value) {
+      if (value!.isEmpty) {
+        return errorMessage;
+      } else {
+        return null;
+      }
+    }),
     style: const TextStyle(fontSize: 20, fontFamily: 'Arial'),
     decoration: InputDecoration(
       hintText: hintText,

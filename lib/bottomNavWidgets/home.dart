@@ -50,11 +50,11 @@ class _HomeState extends State<Home> {
               TextStyle(color: Colors.grey[600], fontFamily: 'Times new roman'),
         ),
         centerTitle: true,
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           fontSize: 35,
         ),
       ),
-      drawer: NavigationDrawer(),
+      drawer: const NavigationDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
                 style: const TextStyle(fontSize: 20, fontFamily: 'Roboto'),
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   hintText: 'Qué quieres leer?',
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
@@ -87,26 +87,26 @@ class _HomeState extends State<Home> {
                   child: Column(
                     children: [
                       Container(
-                        child: TabBar(
-                            labelStyle: TextStyle(fontFamily: 'Roboto'),
+                        child: const TabBar(
+                            labelStyle: const TextStyle(fontFamily: 'Roboto'),
                             indicatorColor: Colors.black,
                             labelColor: Colors.black,
                             tabs: [
-                              Tab(
+                              const Tab(
                                 text: 'Para usted',
                               ),
                               Tab(
                                 text: 'Tendencias',
                               ),
-                              Tab(
+                              const Tab(
                                 text: 'Deportes',
                               ),
-                              Tab(
+                              const Tab(
                                 text: 'Politics',
                               ),
                             ]),
                       ), // Row of Tabs
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         height: screenSize.width > 768
                             ? screenSize.height - 50
@@ -130,7 +130,7 @@ class _HomeState extends State<Home> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Row(
-                                            children: [
+                                            children: const [
                                               CircleAvatar(
                                                 backgroundImage: AssetImage(
                                                     'images/profilePic.png'),
@@ -147,7 +147,7 @@ class _HomeState extends State<Home> {
                                               Icon(Icons.verified),
                                             ],
                                           ),
-                                          Text(
+                                          const Text(
                                             '11:45 AM',
                                             style: TextStyle(
                                                 fontFamily: 'Roboto',
@@ -155,29 +155,28 @@ class _HomeState extends State<Home> {
                                           )
                                         ],
                                       ),
-                                      SizedBox(height: 20),
+                                      const SizedBox(height: 20),
                                       Container(
                                         height:
                                             screenSize.width > 756 ? 500 : 200,
                                         decoration: BoxDecoration(
-                                            image: DecorationImage(
+                                            image: const DecorationImage(
                                                 image: AssetImage(
                                                     'images/postImage.png'),
                                                 fit: BoxFit.cover),
                                             borderRadius:
                                                 BorderRadius.circular(30)),
                                       ),
-                                      SizedBox(height: 20),
-                                      Text(
-                                        textAlign: TextAlign.start,
+                                      const SizedBox(height: 20),
+                                      const Text(
                                         'El presidente Hernández visita la UE',
                                         style: TextStyle(
                                             fontFamily: 'Roboto', fontSize: 20),
                                       ),
-                                      SizedBox(height: 15),
+                                      const SizedBox(height: 15),
                                       OutlinedButton(
                                         style: OutlinedButton.styleFrom(
-                                          fixedSize: Size.fromHeight(40),
+                                          fixedSize: const Size.fromHeight(40),
                                           side: const BorderSide(
                                             width: 1.5,
                                           ),
@@ -198,25 +197,25 @@ class _HomeState extends State<Home> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           IconButton(
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.thumb_up_outlined,
                                             ),
                                             onPressed: () {},
                                           ),
                                           IconButton(
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.thumb_down_outlined,
                                             ),
                                             onPressed: () {},
                                           ),
                                           IconButton(
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.comment,
                                             ),
                                             onPressed: () {},
                                           ),
                                           IconButton(
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.share,
                                               size: 30,
                                             ),

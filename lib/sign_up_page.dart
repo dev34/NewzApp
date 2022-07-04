@@ -9,6 +9,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>(); // A
   bool passwordVisible = false;
   bool passwordVisible2 = false;
   @override
@@ -26,19 +27,28 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 30),
               Form(
-                //for THE FUTURE
+                key: formKey, //DA FILLED_OR_NOT + VALIDATION(BOO)
+                //for THE PRESENT
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    simpleField('Primer nombre'),
+                    simpleField('Primer nombre', 'Plz enter a Username'),
                     const SizedBox(height: 30),
-                    simpleField('Apellido'),
+                    simpleField('Apellido', 'Plz enter a password'),
                     const SizedBox(height: 30),
-                    simpleField('Nombre de usuario'),
+                    simpleField(
+                        'Nombre de usuario', 'Plz confirm your password'),
                     const SizedBox(height: 30),
-                    simpleField('Email'),
+                    simpleField('Email', 'Plz enter an email'),
                     const SizedBox(height: 30),
                     TextFormField(
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return 'Plz enter a password';
+                        } else {
+                          return null;
+                        }
+                      }),
                       style: const TextStyle(
                         fontSize: 20,
                         fontFamily: 'Arial',
@@ -78,7 +88,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     const SizedBox(height: 30),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/interest');
+                        if (formKey.currentState!.validate()) {
+                          Navigator.pushNamed(context, '/interest');
+                        }
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(

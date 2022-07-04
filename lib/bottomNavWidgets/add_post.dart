@@ -30,30 +30,30 @@ class _AddPostState extends State<AddPost> {
             Row(
               children: [
                 IconButton(
-                    padding: EdgeInsets.only(right: 20),
+                    padding: const EdgeInsets.only(right: 20),
                     onPressed: () {},
                     icon: Icon(
                       Icons.add_circle,
                       color: primaryColor,
                       size: 35,
                     )),
-                Text(
+                const Text(
                   'Agregar una Publicación',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 )
               ],
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   'De qué quieres hablar?',
                   style: TextStyle(fontFamily: 'Roboto'),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  decoration: ShapeDecoration(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: const ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                           width: 1.5,
@@ -63,7 +63,7 @@ class _AddPostState extends State<AddPost> {
                     ),
                   ),
                   child: DropdownButton(
-                    underline: SizedBox.shrink(),
+                    underline: const SizedBox.shrink(),
                     // Initial Value
                     value: dropdownvalue,
 
@@ -88,10 +88,10 @@ class _AddPostState extends State<AddPost> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               style: const TextStyle(fontSize: 20, fontFamily: 'Roboto'),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 hintText: 'Título',
@@ -102,18 +102,18 @@ class _AddPostState extends State<AddPost> {
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
+                  borderSide: BorderSide(
                     width: 1.5,
                     color: Colors.black,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             TextFormField(
               maxLines: 10,
               style: const TextStyle(fontSize: 20, fontFamily: 'Roboto'),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 hintText: 'Escriba aquí',
@@ -124,31 +124,31 @@ class _AddPostState extends State<AddPost> {
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
+                  borderSide: BorderSide(
                     width: 1.5,
                     color: Colors.black,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Row(
               children: [
                 IconButton(
-                    padding: EdgeInsets.only(right: 20),
+                    padding: const EdgeInsets.only(right: 20),
                     onPressed: () {},
-                    icon: Icon(Icons.add_box_outlined)),
-                Text(
+                    icon: const Icon(Icons.add_box_outlined)),
+                const Text(
                   'Agregar contenido de imagen/video/audio',
                   style: TextStyle(fontFamily: 'Roboto'),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-                side: BorderSide(
+                minimumSize: const Size(double.infinity, 50),
+                side: const BorderSide(
                   color: Colors.grey,
                   style: BorderStyle.solid,
                   width: 1.5,
@@ -164,11 +164,11 @@ class _AddPostState extends State<AddPost> {
                       fontWeight: FontWeight.w500)),
               onPressed: () {},
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-                side: BorderSide(
+                minimumSize: const Size(double.infinity, 50),
+                side: const BorderSide(
                   color: Colors.grey,
                   style: BorderStyle.solid,
                   width: 1.5,
@@ -184,8 +184,8 @@ class _AddPostState extends State<AddPost> {
                       fontWeight: FontWeight.normal)),
               onPressed: () {},
             ),
-            SizedBox(height: 30),
-            Text(
+            const SizedBox(height: 30),
+            const Text(
               'Tenga en cuenta que este contenido estará sujeto a verificación por cualquier violación de nuestros Términos y condiciones',
               style: TextStyle(fontFamily: 'Roboto'),
             )

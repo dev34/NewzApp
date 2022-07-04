@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './main.dart';
 
 class FlashScreen extends StatelessWidget {
   const FlashScreen({Key? key}) : super(key: key);
