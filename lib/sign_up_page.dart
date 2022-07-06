@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cool_alert/cool_alert.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 import './pubg_widgets/widgets.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -9,7 +13,42 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>(); // A
+  //EVERYTHING HERE
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
+  Register() async {
+    final ProgressDialog loadingScreen = ProgressDialog(context: context);
+    loadingScreen.show(max: 10, msg: 'Registering...Plz Wait');
+    await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passwordController.text.trim())
+        .then((value) async {
+      loadingScreen.close();
+      await FirebaseFirestore.instance
+          .collection('userData')
+          .doc(value.user!.uid)
+          .set({
+        'firstName': firstNameController.text.trim(),
+        'lastName': lastNameController.text.trim(),
+        'userName': usernameController.text.trim(),
+        'email': emailController.text.trim(),
+        'password': passwordController.text.trim()
+      }); // NOT TERRIBLE NAME
+    }).onError((error, stackTrace) {
+      loadingScreen.close();
+      CoolAlert.show(
+          context: context, type: CoolAlertType.error, text: error.toString());
+    });
+    //;
+  }
+
   bool passwordVisible = false;
   bool passwordVisible2 = false;
   @override
@@ -32,16 +71,19 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    simpleField('Primer nombre', 'Plz enter a Username'),
+                    simpleField('First Name', 'Plz enter your first name',
+                        firstNameController),
                     const SizedBox(height: 30),
-                    simpleField('Apellido', 'Plz enter a password'),
+                    simpleField('Last Name', 'Plz enter your second name',
+                        lastNameController),
                     const SizedBox(height: 30),
-                    simpleField(
-                        'Nombre de usuario', 'Plz confirm your password'),
+                    simpleField('Username', 'Plz enter your username',
+                        usernameController),
                     const SizedBox(height: 30),
-                    simpleField('Email', 'Plz enter an email'),
+                    simpleField('Email', 'Plz enter an email', emailController),
                     const SizedBox(height: 30),
                     TextFormField(
+                      controller: passwordController,
                       validator: ((value) {
                         if (value!.isEmpty) {
                           return 'Plz enter a password';
@@ -89,7 +131,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          Navigator.pushNamed(context, '/interest');
+                          Register();
+                          // Navigator.pushReplacementNamed(context, '/signin');
                         }
                       },
                       style: ButtonStyle(

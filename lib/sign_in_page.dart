@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cool_alert/cool_alert.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -9,8 +13,48 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
+  var formKey = GlobalKey<FormState>();
+
   bool passwordVisible = false;
   bool? checkVisible = true;
+
+  Login() async {
+    final ProgressDialog loadingScreen = ProgressDialog(context: context);
+    loadingScreen.show(max: 10, msg: 'Logging In...Plz Wait');
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passwordController.text.trim())
+        .then((value) async {
+      await FirebaseFirestore.instance
+          .collection('userData')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get()
+          .then((DocumentSnapshot dataSnapshot) async {
+        if (dataSnapshot.exists) {
+          loadingScreen.close();
+          CoolAlert.show(
+              context: context,
+              type: CoolAlertType.success,
+              text: 'Not Failed Successfully');
+        } else {
+          loadingScreen.close();
+          CoolAlert.show(
+              context: context,
+              type: CoolAlertType.error,
+              text: 'Failed Successfully');
+        }
+      });
+    }).onError((error, stackTrace) {
+      loadingScreen.close();
+      CoolAlert.show(
+          context: context, type: CoolAlertType.error, text: error.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +70,12 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const SizedBox(height: 40),
               Form(
+                key: formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextFormField(
+                      controller: emailController,
                       style: const TextStyle(fontSize: 20, fontFamily: 'Arial'),
                       decoration: InputDecoration(
                         hintText: 'Nombre de usuario',
@@ -51,6 +97,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     const SizedBox(height: 30),
                     TextFormField(
+                      controller: passwordController,
                       style: const TextStyle(
                         fontSize: 20,
                         fontFamily: 'Arial',
@@ -126,7 +173,11 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/interest');
+                        if (formKey.currentState!.validate()) {
+                          Login();
+                          // Navigator.pushReplacementNamed(context, '/signin');
+                        }
+                        // Navigator.pushNamed(context, '/interest');
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(

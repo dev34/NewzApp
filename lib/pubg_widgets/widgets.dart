@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-TextFormField simpleField(String hintText, String errorMessage) {
+TextFormField simpleField(String hintText, String errorMessage, controller) {
   return TextFormField(
+    controller: controller,
     validator: ((value) {
       if (value!.isEmpty) {
         return errorMessage;
